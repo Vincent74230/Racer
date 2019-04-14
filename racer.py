@@ -108,10 +108,4 @@ liste = sorted(Resultats)
 listette = liste[0]
 
 
-print("\nAnd the winner is : {}".format(listette))
-
-
-
-
-
-
+print("\nAnd the winner is :Car {} with pilot {}, time : {}".format(listette[1],listette[2],listette[0]))
