@@ -1,4 +1,3 @@
-from string import ascii_uppercase
 from random import random, randint, choice as randchoice
 
 TERRAINS = ["asphalt", "sand", "mud", "rocky"]
@@ -70,7 +69,6 @@ class Car:
             i+=1
         return time_for_track,self.name,self.pilot.name
 
-
 track = Track()#generation du circuit
 print ("Voici le circuit:\n")#affichage du circuit
 i=0
@@ -91,21 +89,18 @@ while i<5:
     print (combo_car_pilot[i])
     i +=1
 
-
-Resultats = []
+Resultats = []#creation d'une liste comprenant : des listes de trio : temps par tronçon, n°voiture et pilote
 i=0
 while i<5:
     Resultats.append(combo_car_pilot[i].time_for_track(track))
     i+=1
 
-print ("\nVoici les temps sur l'ensemble du circuit:\n")
+print ("\nVoici les temps sur l'ensemble du circuit:\n")#affichage des temps par voiture et pilote
 i=0
 while i<5:
     print ("{} avec {}".format(Resultats[i],combo_car_pilot[i]))
     i += 1
 
-liste = sorted(Resultats)
+liste = sorted(Resultats)#on désigne le vainqueur
 listette = liste[0]
-
-
 print("\nAnd the winner is :Car {} with pilot {}, time : {}".format(listette[1],listette[2],listette[0]))
