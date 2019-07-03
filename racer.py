@@ -1,7 +1,7 @@
 """Little programm of an imaginary race between 5 imaginary cars
 in an imaginary track made of 20 imaginary trackparts:
 it's neverland"""
-from random import random, randint, choice as randchoice
+from random import random, randint
 
 TERRAINS = ["asphalt", "sand", "mud", "rocky"]
 COMPLEXITIES = ["normal", "rapid", "subtle"]
@@ -85,38 +85,43 @@ class Car:
             i += 1
         return time_for_track, self.name, self.pilot.name
 
-track = Track()#track generation
+TRACK = Track()#track generation
 print("Voici le circuit:\n")#print the whole track
 K = 0
 while K < 20:
-    print(track[K])
+    print(TRACK[K])
     K += 1
 
-combo_car_pilot = [] # list of 5 combo car/pilot
+COMBO_CAR_PILOT = [] # list of 5 combo car/pilot
 L = 0
 while L < 5:
-    nom_du_pilote = PILOT[L]
-    nom_du_pilote = Car()
-    combo_car_pilot.append(nom_du_pilote)
+    PILOT_NAME = PILOT[L]
+    PILOT_NAME = Car()
+    COMBO_CAR_PILOT.append(PILOT_NAME)
     L += 1
 print("\nEt les participants:\n")#print car/pilot combo
 M = 0
 while M < 5:
-    print(combo_car_pilot[M])
+    print(COMBO_CAR_PILOT[M])
     M += 1
 
-Resultats = []#creates a list with : car/pilot/time for track
+RESULTATS = []#creates a list with : car/pilot/time for track
 N = 0
 while N < 5:
-    Resultats.append(combo_car_pilot[N].time_for_track(track))
+    RESULTATS.append(COMBO_CAR_PILOT[N].time_for_track(TRACK))
     N += 1
 
 print("\nVoici les temps sur l'ensemble du circuit:\n")#display time combo car/pilot
 O = 0
 while O < 5:
-    print("{} avec {}".format(Resultats[O], combo_car_pilot[O]))
+    print("{} avec {}".format(RESULTATS[O], COMBO_CAR_PILOT[O]))
     O += 1
 
-liste = sorted(Resultats)#the winner is
-listette = liste[0]
-print("\nWinner is :Car {} with pilot {}, time : {}".format(listette[1], listette[2], listette[0]))
+LISTE = sorted(RESULTATS)#the winner is
+LISTETTE = LISTE[0]
+print("\nWinner is :Car {} with pilot {}, time : {}".format(LISTETTE[1], LISTETTE[2], LISTETTE[0]))
+
+
+
+
+
