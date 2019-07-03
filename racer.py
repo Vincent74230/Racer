@@ -7,7 +7,7 @@ TERRAINS = ["asphalt", "sand", "mud", "rocky"]
 COMPLEXITIES = ["normal", "rapid", "subtle"]
 PILOT = ["A", "B", "C", "D", "E"]
 
-class TrackPart:
+class TrackPart:#pylint: disable=R0903
     """This class generate one track-part, 20 of it will be created"""
     def __init__(self):
         self.length = randint(0, 10)
@@ -16,7 +16,7 @@ class TrackPart:
     def __str__(self):
         return "{} {} et {}".format(self.length, self.terrain, self.complexity)
 
-class Track:
+class Track:#pylint: disable=R0903
     """This class generate a track made of 20 trackparts"""
     def __init__(self):
         self.parts = []
@@ -27,7 +27,7 @@ class Track:
     def __getitem__(self, index):
         return self.parts[index]
 
-class Pilot:
+class Pilot:#pylint: disable=R0903
     """Set up a pilot with a name"""
     compteur = 0
     def __init__(self):
@@ -120,8 +120,3 @@ while O < 5:
 LISTE = sorted(RESULTATS)#the winner is
 LISTETTE = LISTE[0]
 print("\nWinner is :Car {} with pilot {}, time : {}".format(LISTETTE[1], LISTETTE[2], LISTETTE[0]))
-
-
-
-
-
