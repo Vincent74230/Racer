@@ -51,6 +51,9 @@ class Car:
     def __str__(self):
         return "voiture {} avec pilot {}".format(self.name, self.pilot.name)
     def time_for_part(self, trackpart):
+        """
+        Calculates time each pilot makes within a trackpart
+        """
         time_for_part = 0
         vitesse_voiture = 0
         vitesse_pilote = 0
@@ -71,6 +74,9 @@ class Car:
         time_for_part = trackpart.length * (1+vitesse_pilote*vitesse_voiture)
         return time_for_part
     def time_for_track(self, track):
+        """
+        Calculates time each pilot makes in a track
+        """
         time_for_track = 0
         i = 0
         while i < 20:
@@ -79,7 +85,7 @@ class Car:
         return time_for_track, self.name, self.pilot.name
 
 track = Track()#track generation
-print("Voici le circuit:\n")#print the all track
+print("Voici le circuit:\n")#print the whole track
 i = 0
 while i < 20:
     print(track[i])
@@ -98,7 +104,7 @@ while i < 5:
     print(combo_car_pilot[i])
     i += 1
 
-Resultats = []#creation list with : car/pilot/time for track
+Resultats = []#creates a list with : car/pilot/time for track
 i = 0
 while i < 5:
     Resultats.append(combo_car_pilot[i].time_for_track(track))
