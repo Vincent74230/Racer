@@ -20,10 +20,10 @@ class Track:
     """This class generate a track made of 20 trackparts"""
     def __init__(self):
         self.parts = []
-        i = 0
-        while i < 20:
+        j = 0
+        while j < 20:
             (self.parts).append(TrackPart())
-            i += 1
+            j += 1
     def __getitem__(self, index):
         return self.parts[index]
 
@@ -38,10 +38,11 @@ class Pilot:
         Pilot.compteur += 1
 
 class Car:
-    """Generate a car, a pilot inside(class in-a-class) and
-    2 classmethods that calculates time a combo car/pilot made in a part
-    and finally, time the combo made in a all track"""
+    """This class makes a car, a pilot inside(with Pilot class), and
+    2 classmethods that calculates how much time a combo car/pilot makes in a single
+    part, and finally, time the combo made in a all track"""
     def __init__(self):
+        """ In this constructor we create our car"""
         self.name = randint(1, 20)
         self.pilot = Pilot()
         self.asphalt_speed = random()+0.5
@@ -52,7 +53,7 @@ class Car:
         return "voiture {} avec pilot {}".format(self.name, self.pilot.name)
     def time_for_part(self, trackpart):
         """
-        Calculates time each pilot makes within a trackpart
+        Calculates time each combo car/pilot makes within a trackpart
         """
         time_for_part = 0
         vitesse_voiture = 0
@@ -86,35 +87,35 @@ class Car:
 
 track = Track()#track generation
 print("Voici le circuit:\n")#print the whole track
-i = 0
-while i < 20:
-    print(track[i])
-    i += 1
+K = 0
+while K < 20:
+    print(track[K])
+    K += 1
 
 combo_car_pilot = [] # list of 5 combo car/pilot
-i = 0
-while i < 5:
-    nom_du_pilote = PILOT[i]
+L = 0
+while L < 5:
+    nom_du_pilote = PILOT[L]
     nom_du_pilote = Car()
     combo_car_pilot.append(nom_du_pilote)
-    i += 1
+    L += 1
 print("\nEt les participants:\n")#print car/pilot combo
-i = 0
-while i < 5:
-    print(combo_car_pilot[i])
-    i += 1
+M = 0
+while M < 5:
+    print(combo_car_pilot[M])
+    M += 1
 
 Resultats = []#creates a list with : car/pilot/time for track
-i = 0
-while i < 5:
-    Resultats.append(combo_car_pilot[i].time_for_track(track))
-    i += 1
+N = 0
+while N < 5:
+    Resultats.append(combo_car_pilot[N].time_for_track(track))
+    N += 1
 
 print("\nVoici les temps sur l'ensemble du circuit:\n")#display time combo car/pilot
-i = 0
-while i < 5:
-    print("{} avec {}".format(Resultats[i], combo_car_pilot[i]))
-    i += 1
+O = 0
+while O < 5:
+    print("{} avec {}".format(Resultats[O], combo_car_pilot[O]))
+    O += 1
 
 liste = sorted(Resultats)#the winner is
 listette = liste[0]
